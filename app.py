@@ -14,6 +14,9 @@ import logging
 
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 
 def create_app(config_name=None):
