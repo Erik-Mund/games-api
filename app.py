@@ -107,7 +107,7 @@ def create_app(config_name=None):
 
     api.register_blueprint(developer.developer_bp)
     api.register_blueprint(game.game_bp)
-    api.register_blueprint(review.review_bp)
+    #api.register_blueprint(review.review_bp)
     api.register_blueprint(genre.genre_bp)
     api.register_blueprint(authentication.auth_bp)
     api.register_blueprint(user.register_bp)
