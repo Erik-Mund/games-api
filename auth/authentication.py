@@ -1,5 +1,5 @@
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from flask import current_app, request
 from models import User, TokenBlockList
 from flask import jsonify, g
@@ -65,7 +65,7 @@ def login(data):
     return {"access_token": access_token, "refresh_token": refresh_token}, 200
 
 @auth_bp.post("/refresh")
-@auth_bp.doc(summary="token refresh", description="requires a refresh token, returns a new access token")
+@auth_bp.doc(summary="token refresh", description="Requires a refresh token. Implements refresh token rotation: blocklists current refresh token, returns a new access token and a new refresh token.")
 @limiter.limit("10 per minute")
 @jwt_required(refresh=True)
 def refresh():
@@ -75,7 +75,7 @@ def refresh():
     jti = jwt_data["jti"]
 
     exp_timestamp = jwt_data["exp"]
-    expires_at = datetime.fromtimestamp(exp_timestamp)
+    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
 
     old_refresh_token = TokenBlockList(jti=jti, expires_at=expires_at)
 
@@ -88,13 +88,17 @@ def refresh():
     return jsonify({"access_token": new_access_token, "refresh_token": new_refresh_token}), 200
 
 @auth_bp.post("/logout")
-@auth_bp.doc(summary="User logout", description="Revokes the current access token by adding it to the token blocklist")
+@auth_bp.doc(summary="User logout", description="Revokes the current access token by adding it to the token blocklist. To fully log out, the client also has to call /logout/refresh to revoke the refresh token")
 @jwt_required()
 def logout():
+    jwt_data = get_jwt()
     user = get_jwt_identity()
-    jti = get_jwt()["jti"]
+    jti = jwt_data["jti"]
 
-    token = TokenBlockList(jti=jti)
+    exp_timestamp = jti["exp"]
+    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
+
+    token = TokenBlockList(jti=jti, expires_at=expires_at)
     db.session.add(token)
     db.session.commit()
 
@@ -102,12 +106,16 @@ def logout():
     return jsonify({"message":"Successfully logged out"}), 200
 
 @auth_bp.post("/logout/refresh")
-@auth_bp.doc(summary="User logout", description="Revokes the current refresh token by adding it to the token blocklist")
+@auth_bp.doc(summary="User logout", description="Revokes only the current refresh token by adding it to the token blocklist; for adding current access token to the blocklist use /logout")
 @jwt_required(refresh=True)
 def logout_refresh():
+    jwt_data = get_jwt()
     jti = get_jwt()["jti"]
 
-    token = TokenBlockList(jti=jti)
+    exp_timestamp = jwt_data["exp"]
+    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
+
+    token = TokenBlockList(jti=jti, expires_at=expires_at)
     db.session.add(token)
     db.session.commit()
 
