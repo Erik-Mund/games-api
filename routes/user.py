@@ -6,6 +6,7 @@ from database import db
 from extensions import limiter
 from schemes.auth import RegisterSchema
 from error_function import error
+from email.utils import parseaddr
 
 register_bp = Blueprint("register_bp", __name__)
 
@@ -40,7 +41,7 @@ def register(data):
         current_app.logger.warning("Unsuccessful registration attempt; name is too long")
         return error("name too long", 400)
 
-    if "@" not in data["email"] or "." not in data["email"]:
+    if "@" in parseaddr(data["email"])[1]:
         current_app.logger.warning("Unsuccessful registration attempt; invalid email")
         return error("invalid email", 400)
 
