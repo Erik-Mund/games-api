@@ -75,7 +75,7 @@ def refresh():
     jti = jwt_data["jti"]
 
     exp_timestamp = jwt_data["exp"]
-    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
+    expires_at = datetime.fromtimestamp(exp_timestamp)
 
     old_refresh_token = TokenBlockList(jti=jti, expires_at=expires_at)
 
@@ -95,8 +95,8 @@ def logout():
     user = get_jwt_identity()
     jti = jwt_data["jti"]
 
-    exp_timestamp = jti["exp"]
-    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
+    exp_timestamp = jwt_data["exp"]
+    expires_at = datetime.fromtimestamp(exp_timestamp)
 
     token = TokenBlockList(jti=jti, expires_at=expires_at)
     db.session.add(token)
@@ -113,7 +113,7 @@ def logout_refresh():
     jti = get_jwt()["jti"]
 
     exp_timestamp = jwt_data["exp"]
-    expires_at = datetime.fromtimestamp(exp_timestamp, tz=timezone.utc)
+    expires_at = datetime.fromtimestamp(exp_timestamp)
 
     token = TokenBlockList(jti=jti, expires_at=expires_at)
     db.session.add(token)
