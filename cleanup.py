@@ -17,3 +17,5 @@ def cleanup():
         except Exception as e:
             db.session.rollback()
             current_app.logger.error(f"Cleanup failed: {e}")
+
+cleanup()
