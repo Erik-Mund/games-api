@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete profile</title>
+</head>
+<body>
+    <form id="delete_profile">
+        <h2>ARE YOU SURE YOU WANT TO DELETE YOUR PROFILE? THIS ACTION IS IRREVERSIBLE!</h2>
+        <input type="password" id="password" placeholder="Enter your password" required/>
+        <p></p>
+        <button type="submit">YES</button>
+        <button onclick="window.location.href='{{ url_for('main_page') }}'">NO</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script type="module" src="{{ url_for('static', filename='profile/delete_my_profile.js') }}"></script>
+</body>
+</html>

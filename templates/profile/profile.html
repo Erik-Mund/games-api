@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+</head>
+<body>
+    <div id="profile"></div>
+    <button id="update_button" style="display: none;" onclick="window.location.href='{{ url_for('html.update_profile') }}'">Update info</button>
+    <p></p>
+    <button id="delete_button" style="display: none;" onclick="window.location.href='{{ url_for('html.delete_profile') }}'">DELETE PROFILE</button>
+    <p></p>
+    <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+    <script type="module" src="{{ url_for('static', filename='profile/get_my_profile.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update profile</title>
+</head>
+<body>
+    <form id="update_user_info">
+        <p>Only fill the fields you need to change, leave others blank</p>
+        <input type="text" id="name" placeholder="Enter new name"/>
+        <p></p>
+        <p>Change password: </p>
+        <input type="password" id="old_password" placeholder="Enter old password">
+        <input type="password" id="password" placeholder="Enter new password">
+        <p></p>
+        <button type="submit">Submit all changes</button>
+    </form>
+    <div id="message"></div>
+    <p></p>
+    <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+    <script type="module" src="{{ url_for('static', filename='profile/update_my_profile.js') }}"></script>
+</body>
+</html>

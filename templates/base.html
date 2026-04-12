@@ -9,6 +9,24 @@
 <body>
     <h1><b>PORTFOLIO PROJECT</b></h1>
     <p>A RESTful video game API featuring full CRUD operations, filtering and sorting, derived fields, and a review system. Includes JWT authentication with refresh token rotation, role-based authorization, and context-specific policies. Built with structured error handling, logging, and thoroughly tested with 148+ tests. Fully documented via Swagger UI. </p>
+
+    <h2>Authorization: </h2>
+    <div>
+        <button onclick="window.location.href='{{ url_for('auth.get_login') }}'">LOGIN</button>
+        <button onclick="window.location.href='{{ url_for('html.registration_page') }}'">REGISTRATION</button>
+    </div>
+    <p> </p>
+    <div>
+        <button onclick="window.location.href='{{ url_for('html.profile_page') }}'">My profile</button>
+        <button onclick="window.location.href='{{ url_for('auth.get_logout') }}'">LOGOUT</button>
+    </div>
+
+    <h2>Documentation: </h2>
+    <button onclick="window.location.href='/api/docs'">FULL SWAGGER UI DOCUMENTATION</button>
+
+    <h2>Games: </h2>
+    <button onclick="window.location.href='/games'">Get all games</button>
+
     <h2><b>ROUTES:</b></h2>
     <p>Full Swagger documentation: /api/docs</p>
     <p>all games: /games</p>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+    <h3>Are you sure want to logout?</h3>
+
+    <div>
+        <button onclick="loadLogout()">Logout</button>
+        <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="{{ url_for('static', filename='logout_script.js') }}"></script>
+</body>
+</html>
