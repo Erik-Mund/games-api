@@ -3,7 +3,7 @@ from flask_smorest import Api
 
 from database import db
 
-from routes import developer, game, review, genre, user, me
+from routes import developer, game, review, genre, user, me, html_routes
 from errors import register_error_handlers
 from auth import authentication
 
@@ -112,6 +112,7 @@ def create_app(config_name=None):
     api.register_blueprint(authentication.auth_bp)
     api.register_blueprint(user.register_bp)
     api.register_blueprint(me.me_bp)
+    api.register_blueprint(html_routes.html_bp)
 
 
     # Errors
@@ -140,7 +141,7 @@ def create_app(config_name=None):
 
 
     @app.route("/")
-    def hello_world():
+    def main_page():
         return render_template("index.html")
 
     return app

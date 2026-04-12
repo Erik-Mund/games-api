@@ -3,6 +3,7 @@ import jwt
 from database import db
 from models import User, TokenBlockList
 import pytest
+from flask_jwt_extended import create_access_token
 
 def test_login_success(client, user):
     response = client.post("/login", json={
@@ -33,21 +34,15 @@ def test_protected_route_with_token(client, user):
 
     assert response.status_code == 200
 
-def test_expired_token(client, user, app):
-    payload = {
-        "sub": user.id,
-        "exp": datetime.utcnow() - timedelta(hours=1)
-    }
 
-    expired_token = jwt.encode(
-        payload,
-        app.config["SECRET_KEY"],
-        algorithm="HS256"
-    )
+
+
+def test_expired_token(client, user):
+    token = create_access_token(identity=user.id, expires_delta=timedelta(seconds=-1))
 
     response = client.get(
         "/me",
-        headers={"Authorization": f"Bearer {expired_token}"}
+        headers={"Authorization": f"Bearer {token}"}
     )
 
     assert response.status_code == 401

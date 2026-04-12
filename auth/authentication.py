@@ -2,7 +2,7 @@ import jwt
 from datetime import datetime, timedelta, timezone
 from flask import current_app, request
 from models import User, TokenBlockList
-from flask import jsonify, g
+from flask import jsonify, g, render_template
 from flask_smorest import Blueprint
 from auth.auth_decorators import login_required
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
@@ -19,7 +19,7 @@ from error_function import error
 from flask.views import MethodView
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/", description="Authentication operations")
-me_bp = Blueprint("me", __name__, url_prefix="/me", description="Operations with self")
+#me_bp = Blueprint("me", __name__, url_prefix="/me", description="Operations with self")
 
 def generate_token(user):
     payload = {
@@ -29,6 +29,12 @@ def generate_token(user):
     }
 
     return jwt.encode(payload, current_app.config["SECRET_KEY"], algorithm="HS256")
+
+@auth_bp.get("/login")
+@auth_bp.doc(summary="only returns the page, not for Swagger usage")
+@limiter.limit("10 per minute")
+def get_login():
+    return render_template("login.html")
 
 @auth_bp.post("/login")
 @auth_bp.arguments(LoginSchema)
@@ -86,6 +92,12 @@ def refresh():
     new_refresh_token = create_refresh_token(identity=user_id)
 
     return jsonify({"access_token": new_access_token, "refresh_token": new_refresh_token}), 200
+
+@auth_bp.get("/logout")
+@auth_bp.doc(summary="only returns the page, not for Swagger usage")
+@limiter.limit("10 per minute")
+def get_logout():
+    return render_template("logout.html")
 
 @auth_bp.post("/logout")
 @auth_bp.doc(summary="User logout", description="Revokes the current access token by adding it to the token blocklist. To fully log out, the client also has to call /logout/refresh to revoke the refresh token")
