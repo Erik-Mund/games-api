@@ -36,6 +36,11 @@ def register(data):
             current_app.logger.warning("Unsuccessful registration attempt; missing required fields")
             return error(f"{field} is required", 400)
 
+    name = data["name"].strip()
+    if not name:
+        current_app.logger.warning("Unsuccessful registration attempt; empty name")
+        return error("name cannot be empty", 400)
+
     if len(data["name"]) > 30:
         current_app.logger.warning("Unsuccessful registration attempt; name is too long")
         return error("name too long", 400)
