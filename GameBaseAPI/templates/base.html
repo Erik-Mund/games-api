@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GameBaseAPI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="header">
+        <h1><b>The Game Database</b></h1>
+        <div class="buttons">
+            <button id="login_button" onclick="window.location.href='{{ url_for('auth.get_login') }}'">LOGIN</button>
+            <button id="registration_button" onclick="window.location.href='{{ url_for('html.registration_page') }}'">REGISTRATION</button>
+            <button style="display: none;" id="my_profile_button" onclick="window.location.href='{{ url_for('html.profile_page') }}'">My profile</button>
+        </div>
+    </div>
+
+    <p>A RESTful video game API featuring full CRUD operations, filtering and sorting, derived fields, and a review system. Includes JWT authentication with refresh token rotation, role-based authorization, and context-specific policies. Built with structured error handling, logging, and thoroughly tested with 160 tests. Fully documented via Swagger UI. </p>
+
+
+    <h2>Documentation: </h2>
+    <button onclick="window.location.href='/api/docs'">FULL SWAGGER UI DOCUMENTATION</button>
+
+    <h2>Games: </h2>
+    <button id="get_all_games">Get all games</button>
+
+    <h2>Developers: </h2>
+    <button onclick="window.location.href='/developer-profile-page'">Manage my developer profile</button>
+    <button onclick="window.location.href='/all-developers'">See all developers</button>
+
+    <h2>Genres: </h2>
+    <button onclick="window.location.href='/all-genres'">See all genres</button>
+    <p></p>
+    <button onclick="window.location.href='/create-genre'" id="create_genres" style="display: none;">Create genre</button>
+
+
+    <script type="module" src="{{ url_for('static', filename='main_page.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update developer profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form id="dev-form">
+        <h2>New studio name: </h2>
+        <input type="text" id="studio_name" placeholder="Enter new studio name" required/>
+        <button type="submit">Update developer profile</button>
+    </form>
+    <p></p>
+    <div id="message"></div>
+    <p></p>
+
+    <button id="back">Back</button>
+    <script type="module" src="{{ url_for('static', filename='developer_profile/update_my.js') }}"></script>
+    <script src="{{ url_for('static', filename='back_button.js') }}"></script>
+</body>
+</html>

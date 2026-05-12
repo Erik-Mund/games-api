@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2 id="loading">Loading...</h2>
+
+    <div>
+        <label for="sort" class="sort_label">Sort by:</label>
+
+        <select id="sort">
+            <option value="rating">Rating</option>
+            <option value="new">Newest</option>
+            <option value="old">Oldest</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="per_page" class="per_page_label">Reviews per page: </label>
+        <input type="number" class="per_page_input" id="per_page" placeholder="number" value="20" min="1" max="100"/>
+    </div>
+
+    <p></p>
+
+    <h2 id="loading" style="display: none;">Loading</h2>
+
+    <div id="reviews"></div>
+    <p></p>
+
+    <div class="number-input">
+        <label for="page_input">Page: </label>
+        <button onclick="this.nextElementSibling.stepDown()">-</button>
+        <input type="number" class="page_input" placeholder="page" min="1" max="999" id="page_input" required/>
+        <button onclick="this.previousElementSibling.stepUp()">+</button>
+        <button id="go">Go</button>
+    </div>
+    <div id="page_message"></div>
+    <p></p>
+
+    <button id="back">Back</button>
+
+    <script type="module" src="{{ url_for('static', filename='reviews/get_reviews.js') }}"></script>
+    <script src="{{ url_for('static', filename='back_button.js') }}"></script>
+</body>
+</html>

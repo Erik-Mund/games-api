@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite databases
+*.db
+*.sqlite3
+
+# Virtual environments
+/GameBaseAPI/.venv
+env/
+ENV/
+
+.idea/
+
+GameBaseAPI/.env
+
+*.log
+
+.DS_Store
+
+# Other
+*.egg-info/
+dist/
+build/

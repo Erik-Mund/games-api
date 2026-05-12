@@ -1,0 +1,263 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    margin: 40px auto;
+    max-width: 800px;
+    line-height: 1.6;
+    background-color: #1e1e1e;
+    color: #eaeaea;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #555;
+}
+
+input {
+    font-size: 18px;
+    padding: 8px;
+
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+}
+
+a {
+    color: #4ea1ff;
+}
+
+h1 {
+    font-size: 30px;
+}
+h2 {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.profile_information {
+    font-size: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.message {
+    font-size: 20px;
+    max-width: 800px;
+}
+
+/* Chrome, Safari, Edge */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.page_input {
+    width: 20px;
+}
+
+#sort {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 6px 10px;
+    outline: none;
+    font-size: 17px;
+}
+
+#sort:focus {
+    border-color: #888;
+}
+
+#sort option {
+    background-color: #222;
+    color: #eaeaea;
+    font-size: 17px;
+}
+
+.sort_label {
+    font-size: 20px;
+}
+.per_page_label {
+    font-size: 16px;
+}
+.per_page_input {
+    height: 10px;
+    width: 20px;
+    font-size: 16px;
+}
+.game_title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game_info h3 {
+    margin: 5px 0;
+}
+.average_rating, #get_reviews_button {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.post_reviews h3 {
+    margin: 5px 0;
+}
+#price {
+    margin-bottom: 5px;
+}
+#summary {
+    margin-top: 0;
+}
+.post_reviews{
+    margin-top: 30px;
+}
+
+textarea, select {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 8px;
+}
+textarea{
+    resize: vertical;
+}
+textarea:focus,
+ select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.star_rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.star_rating input {
+    display: none;
+}
+
+.star_rating label {
+    font-size: 24px;
+    color: #555;          /* empty stars */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Hover effect */
+.star_rating label:hover,
+.star_rating label:hover ~ label {
+    color: gold;
+}
+
+/* Selected stars */
+.star_rating input:checked ~ label {
+    color: gold;
+}
+
+.rating_row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating_label {
+    margin: 0;
+}
+
+.review_text{
+    width: 300px;
+    height: 50px;
+}
+.review-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    max-width: 500px;
+}
+
+/* Stars */
+.stars {
+    font-size: 22px;
+    color: gold;
+    margin-bottom: 5px;
+}
+
+/* Comment */
+.review-comment {
+    font-size: 16px;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Username */
+.review-user {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Button */
+.report-button {
+    margin-top: 8px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.report-button:hover {
+    background-color: #555;
+}
+
+.developer_my_information {
+    margin-bottom: 40px;
+}
+
+.review-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete developer profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form id="delete_profile">
+        <h2>ARE YOU SURE YOU WANT TO DELETE YOUR DEVELOPER PROFILE? THIS ACTION IS IRREVERSIBLE! ALL YOUR GAMES WILL BE DELETED!</h2>
+        <button type="submit">YES</button>
+        <button id="back">NO</button>
+    </form>
+
+    <p></p>
+    <div id="message" class="message"></div>
+
+    <script type="module" src="{{ url_for('static', filename='developer_profile/delete_my.js') }}"></script>
+    <script src="{{ url_for('static', filename='back_button.js') }}"></script>
+</body>
+</html>

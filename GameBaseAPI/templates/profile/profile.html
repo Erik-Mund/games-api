@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2 id="loading" class="loading">Loading...</h2>
+    <div id="profile" class="profile_information"></div>
+    <p></p>
+    <button id="logout_button" style="display: none;">Logout</button>
+    <p></p>
+    <button id="update_button" style="display: none;" onclick="window.location.href='{{ url_for('html.update_profile_page') }}'">Update info</button>
+    <p></p>
+    <button id="delete_button" style="display: none;" onclick="window.location.href='{{ url_for('html.delete_profile_page') }}'">DELETE PROFILE</button>
+    <p></p>
+    <div id="message" class="message"></div>
+    <p></p>
+    <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+    <script type="module" src="{{ url_for('static', filename='profile/get_my_profile.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='auth/logout_script.js') }}"></script>
+</body>
+</html>

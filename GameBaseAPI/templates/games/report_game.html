@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h2>Are you sure you want to report this game?</h2>
+<p></p>
+<button id="yes">Yes</button>
+<button id="back">No</button>
+
+<div id="message"></div>
+
+<script type="module" src="{{ url_for('static', filename='/games/report_game.js') }}"></script>
+</body>
+</html>

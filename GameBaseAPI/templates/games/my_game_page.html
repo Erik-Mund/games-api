@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<p id="title" class="game_title"></p>
+<div class="game_info">
+    <h3 id="platform"></h3>
+    <div class="rating_info">
+        <h3 id="average_rating" class="average_rating"></h3>
+        <button id="get_reviews_button" >See reviews</button>
+    </div>
+    <h3 id="release_year"></h3>
+    <h3 id="genres"></h3>
+    <h3 id="price"></h3>
+    <p id="summary"></p>
+</div>
+
+<div>
+    <p></p>
+    <button id="update_game">Update info</button>
+    <p></p>
+    <button id="delete_game">DELETE GAME</button>
+    <p></p>
+</div>
+
+
+<div class="post_reviews">
+    <h3 id="review_label">Post review: </h3>
+    <div class="rating_row">
+        <p class="rating_label">Rating: </p>
+        <div class="star_rating">
+            <input type="radio" name="rating" id="star5" value="5">
+            <label for="star5">★</label>
+
+            <input type="radio" name="rating" id="star4" value="4">
+            <label for="star4">★</label>
+
+            <input type="radio" name="rating" id="star3" value="3">
+            <label for="star3">★</label>
+
+            <input type="radio" name="rating" id="star2" value="2">
+            <label for="star2">★</label>
+
+            <input type="radio" name="rating" id="star1" value="1">
+            <label for="star1">★</label>
+        </div>
+    </div>
+
+    <textarea id="review_text" class="review_text"></textarea>
+    <p></p>
+    <button id="submit_review">Submit review</button>
+    <button id="delete_review" style="display: none;">Delete review</button>
+</div>
+
+<div id="review_message"></div>
+
+<p></p>
+
+<button id="report_button">REPORT</button>
+<p></p>
+<button id="back">Back</button>
+
+<script type="module" src="{{ url_for('static', filename='games/get_game.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='reviews/post_review.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='reviews/update_review.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='reviews/delete_review.js') }}"></script>
+</body>
+</html>

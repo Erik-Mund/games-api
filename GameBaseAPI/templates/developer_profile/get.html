@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My developer profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2 id="developer_profile" class="developer_my_information"></h2>
+
+    <p></p>
+    <button id="create_button" style="display: none;" onclick="window.location.href='{{ url_for('html.create_developer_profile_page') }}'">Create developer profile</button>
+    <p></p>
+    <button id="create_game" style="display: none;" onclick="window.location.href='{{ url_for('html.create_game_page') }}'">Publish a game</button>
+    <p></p>
+    <button id="see_games" style="display: none;" onclick="window.location.href='{{ url_for('html.my_games_page') }}'">See my games</button>
+    <p></p>
+    <button id="update_button" style="display: none;" onclick="window.location.href='{{ url_for('html.update_developer_profile_page') }}'">Update info</button>
+    <p></p>
+    <button id="delete_button" style="display: none;" onclick="window.location.href='{{ url_for('html.delete_developer_profile_page') }}'">DELETE PROFILE</button>
+    <p></p>
+    <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+
+    <script type="module" src="{{ url_for('static', filename='developer_profile/get_my.js') }}"></script>
+</body>
+</html>

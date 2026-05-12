@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create genre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form id="genre-form">
+        <h2>Genre: </h2>
+        <input type="text" id="name" placeholder="Enter the genre" required/>
+        <button type="submit">Create genre</button>
+    </form>
+    <p></p>
+    <div id="message"></div>
+    <p></p>
+
+    <button onclick="window.location.href='{{ url_for('main_page') }}'">Back</button>
+    <script type="module" src="{{ url_for('static', filename='genres/create.js') }}"></script>
+</body>
+</html>
