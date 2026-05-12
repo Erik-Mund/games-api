@@ -24,4 +24,4 @@ COPY . .
 EXPOSE 10000
 
 # Start app
-CMD ["gunicorn", "run:app", "--bind", "0.0.0.0:10000"]
+CMD ["gunicorn", "GameBaseAPI.run:app", "--bind", "0.0.0.0:10000"]
