@@ -99,9 +99,6 @@ def create_app(config_name=None):
     register_error_handlers(app)
 
 
-    #with app.app_context():
-    #    db.create_all()
-
     @app.route("/")
     def main_page():
         return render_template("index.html")
