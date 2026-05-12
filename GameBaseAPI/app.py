@@ -9,8 +9,8 @@ from GameBaseAPI.auth import authentication
 from GameBaseAPI.extensions import *
 import logging
 
-#from dotenv import load_dotenv
-#load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 from GameBaseAPI.config import *
 
@@ -20,6 +20,8 @@ import sys
 
 
 def create_app(config_name=None):
+
+    print("create app started")
 
     app = Flask(__name__)
 
