@@ -9,8 +9,8 @@ from GameBaseAPI.auth import authentication
 from GameBaseAPI.extensions import *
 import logging
 
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 from GameBaseAPI.config import *
 
@@ -40,6 +40,8 @@ def create_app(config_name=None):
         app.config.from_object(DevelopmentConfig)
 
     else:
+        app.config.from_object(Config)
+
         db_url = os.getenv("DATABASE_URL")
         if not db_url:
             raise RuntimeError("DATABASE_URL is not set")
@@ -50,8 +52,6 @@ def create_app(config_name=None):
             db_url += "?sslmode=require"
 
         app.config["SQLALCHEMY_DATABASE_URI"] = db_url
-
-        app.config.from_object(Config)
 
 
 
