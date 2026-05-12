@@ -64,11 +64,15 @@ def create_app(config_name=None):
 
     # Extensions
 
+    print("gets to init")
+
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
     limiter.init_app(app)
     api.init_app(app)
+
+    print("gets through it")
 
     api.spec.components.security_scheme(
         "BearerAuth",
