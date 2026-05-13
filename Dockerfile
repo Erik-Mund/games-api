@@ -19,4 +19,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD ["python", "-c", "print('HELLO FROM CONTAINER'); import time; time.sleep(3600)"]
+CMD ["gunicorn", "test:app", "--bind", "0.0.0.0:10000"]
