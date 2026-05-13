@@ -10,13 +10,13 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo "cache-bust-2026-05-12"
+RUN echo "force-rebuild-2026-05-13"
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --force-reinstall
 
 COPY . .
 
 EXPOSE 10000
 
-CMD ["python", "-c", "print('HELLO FROM CONTAINER'); import time; time.sleep(3600)"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:$PORT", "GameBaseAPI.run:app"]
