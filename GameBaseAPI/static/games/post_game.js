@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const devId = devRes.id;
 
            setTimeout(() => {
+               localStorage.setItem("developer_to_load", devId);
                window.location.href = `/developer/${devId}/game-page/${result.id}`;
            }, 900);
         }
