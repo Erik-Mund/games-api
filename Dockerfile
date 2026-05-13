@@ -19,4 +19,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:$PORT", "GameBaseAPI.run:app"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:10000", "GameBaseAPI.run:app"]
