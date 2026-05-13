@@ -17,4 +17,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD gunicorn --bind 0.0.0.0:$PORT GameBaseAPI.run:app
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "GameBaseAPI.run:app"]
