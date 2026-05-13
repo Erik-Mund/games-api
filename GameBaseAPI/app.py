@@ -51,6 +51,7 @@ def create_app(config_name=None):
             db_url = db_url.replace("postgres://", "postgresql://", 1)
 
         app.config["SQLALCHEMY_DATABASE_URI"] = db_url
+        print(db_url)
 
 
 
