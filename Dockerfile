@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN echo "cache-bust-2026-05-12"
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -17,4 +19,4 @@ COPY . .
 
 EXPOSE 10000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "GameBaseAPI.run:app"]
+CMD ["python", "-c", "print('HELLO FROM CONTAINER'); import time; time.sleep(3600)"]
