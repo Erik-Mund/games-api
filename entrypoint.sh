@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 echo "Running migrations..."
 flask --app GameBaseAPI.run:app db upgrade
 
