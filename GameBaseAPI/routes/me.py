@@ -89,7 +89,7 @@ class CurrentUser(MethodView):
         }, 200
 
     @me_bp.arguments(DeleteMeSchema)
-    @me_bp.doc(summary="delete current user")
+    @me_bp.doc(summary="delete current user", description="deletes current user, requires password")
     def delete(self, data):
         user = db.session.get(User, g.current_user.id)
         if not user:

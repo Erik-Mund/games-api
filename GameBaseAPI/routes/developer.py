@@ -106,7 +106,7 @@ class DeveloperResource(MethodView):
         return jsonify(developer.to_dict()), 200
 
     @developer_bp.arguments(PutDeveloperSchema)
-    @developer_bp.doc(summary="updates a developer", desciption="updates a developer by its id")
+    @developer_bp.doc(summary="updates a developer", description="updates a developer by its id")
     @login_required
     @limiter.limit("5 per hour", key_func=lambda: g.current_user)
     def put(self, data, dev_id):

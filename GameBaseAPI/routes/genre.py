@@ -120,7 +120,7 @@ class GenreResource(MethodView):
         return "", 204
 
 
-@genre_bp.doc(summary="gets games by genre", description="gets a game by its genre's id")
+@genre_bp.doc(summary="gets games by genre", description="gets games by its genre's id")
 @genre_bp.route('<int:genre_id>/games', methods=['GET'])
 @limiter.limit("50 per minute")
 def get_games_by_genre(genre_id):
