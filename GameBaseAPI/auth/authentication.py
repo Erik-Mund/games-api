@@ -32,7 +32,7 @@ def get_login():
 
 @auth_bp.post("/login")
 @auth_bp.arguments(LoginSchema)
-@auth_bp.doc(summary="User login, Swagger login below", description="Authenticates users and returns access and refresh JWT tokens")
+@auth_bp.doc(summary="User login, Swagger login below", description="Authenticates users and sets HTTP-only cookies.")
 @limiter.limit("5 per minute")
 def login(data):
     #data = request.get_json()
@@ -71,7 +71,7 @@ def login(data):
 @auth_bp.post("/login-swagger")
 @auth_bp.arguments(LoginSchema)
 @auth_bp.response(200, TokenSchema)
-@auth_bp.doc(summary="User login", description="Authenticates users and returns access and refresh JWT tokens")
+@auth_bp.doc(summary="User login", description="Authenticates users and returns access and refresh JWT tokens. Paste access token in Authorize.")
 @limiter.limit("5 per minute")
 def login_swagger(data):
     #data = request.get_json()
