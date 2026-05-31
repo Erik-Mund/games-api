@@ -6,7 +6,7 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY")
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
-    API_TITLE = "The Game Shop"
+    API_TITLE = "GameBaseAPI"
     API_VERSION = "v1"
     OPENAPI_VERSION = "3.0.3"
     OPENAPI_URL_PREFIX = "/api"
