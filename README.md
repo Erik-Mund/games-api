@@ -4,6 +4,8 @@ A Flask REST API for managing games, reviews, developers, genres, authentication
 
 Built with Flask, SQLAlchemy, PostgreSQL, JWT authentication, Docker, and deployed on Render.
 
+Designed with production-level concerns: security, scalability, and testability.
+
 
 ## Features
 
@@ -74,7 +76,10 @@ python run.py
 
 ## Deployment
 
-The application is containerized with Docker and deployed on Render using Gunicorn as the production WSGI server.
+- Containerized with Docker
+- Production WSGI server: Gunicorn
+- Deployed on Render
+- CI pipeline with automated tests and coverage enforcement
 
 
 ## Base URL
