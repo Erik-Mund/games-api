@@ -44,10 +44,10 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Run tests with coverage
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
           SECRET_KEY: test-secret-key
           JWT_SECRET_KEY: test-jwt-secret
         run: |
-          pytest -v
+          pytest --cov=GameBaseAPI --cov-fail-under=80

@@ -90,7 +90,7 @@ Swagger/OpenAPI documentation is available at:
 /api/docs
 
 It can also be accessed from the main page through the
-"FULL SWAGGER UI DOCUMENTATION" button.
+"View API Documentation" button.
 
 
 ## Key Design Decisions
