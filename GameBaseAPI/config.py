@@ -6,6 +6,8 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY")
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
+    REDIS_URL = os.getenv("REDIS_URL")
+
     API_TITLE = "GameBaseAPI"
     API_VERSION = "v1"
     OPENAPI_VERSION = "3.0.3"

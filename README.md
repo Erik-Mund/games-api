@@ -18,7 +18,7 @@ Designed with production-level concerns: security, scalability, and testability.
 - Pagination, filtering, and sorting
 - Incremental rating calculations
 - Reporting and moderation system
-- Rate limiting with Flask-Limiter
+- Redis-backed Rate limiting with Flask-Limiter
 - Dockerized deployment
 - Render cloud deployment
 
@@ -110,6 +110,5 @@ ole-based, context-specific access control is used to reduce moderation abuse
 
 ## Future Improvements
 
-- Redis-backed distributed rate limiting
 - Caching layer
 - WebSockets for live updates
