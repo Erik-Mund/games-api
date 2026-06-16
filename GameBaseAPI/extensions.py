@@ -6,9 +6,11 @@ from flask_limiter.util import get_remote_address
 from flask_smorest import Api
 from flask_migrate import Migrate
 
+import os
+
 jwt = JWTManager()
 
-limiter = Limiter(key_func=get_remote_address, default_limits=[])
+limiter = Limiter(key_func=get_remote_address, storage_uri=os.getenv("REDIS_URL"), default_limits=[])
 
 api = Api()
 
