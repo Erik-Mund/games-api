@@ -70,7 +70,7 @@ def create_app(config_name=None):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    limiter.init_app(app)
+    limiter.init_app(app, storage_uri=os.getenv("REDIS_URI"))
     api.init_app(app)
 
     print("gets through it")
